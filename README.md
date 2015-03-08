@@ -7,8 +7,6 @@
 [![Latest Unstable Version](https://poser.pugx.org/thinkingmedia/gems-underscore/v/unstable.svg)](https://packagist.org/packages/thinkingmedia/gems-underscore) 
 [![License](https://poser.pugx.org/thinkingmedia/gems-underscore/license.svg)](https://packagist.org/packages/thinkingmedia/gems-underscore)
 
-> Pushing round things down square holes.
-
 `Underscore` is an utility library that makes working with arrays in PHP
 a little bit more pleasant.
 
