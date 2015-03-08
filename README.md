@@ -1,11 +1,11 @@
 # Underscore
 
 [![Build Status](https://travis-ci.org/thinkingmedia/gems-underscore.svg)](https://travis-ci.org/thinkingmedia/gems-underscore)
-[![Coverage Status](https://coveralls.io/repos/thinkingmedia/gems-underscore/badge.svg)](https://coveralls.io/r/thinkingmedia/gems-phing)
-[![Latest Stable Version](https://poser.pugx.org/thinkingmedia/gems-phing/v/stable.svg)](https://packagist.org/packages/thinkingmedia/gems-phing) 
-[![Total Downloads](https://poser.pugx.org/thinkingmedia/gems-phing/downloads.svg)](https://packagist.org/packages/thinkingmedia/gems-phing) 
-[![Latest Unstable Version](https://poser.pugx.org/thinkingmedia/gems-phing/v/unstable.svg)](https://packagist.org/packages/thinkingmedia/gems-phing) 
-[![License](https://poser.pugx.org/thinkingmedia/gems-phing/license.svg)](https://packagist.org/packages/thinkingmedia/gems-phing)
+[![Coverage Status](https://coveralls.io/repos/thinkingmedia/gems-underscore/badge.svg)](https://coveralls.io/r/thinkingmedia/gems-underscore)
+[![Latest Stable Version](https://poser.pugx.org/thinkingmedia/gems-underscore/v/stable.svg)](https://packagist.org/packages/thinkingmedia/gems-underscore) 
+[![Total Downloads](https://poser.pugx.org/thinkingmedia/gems-underscore/downloads.svg)](https://packagist.org/packages/thinkingmedia/gems-underscore) 
+[![Latest Unstable Version](https://poser.pugx.org/thinkingmedia/gems-underscore/v/unstable.svg)](https://packagist.org/packages/thinkingmedia/gems-underscore) 
+[![License](https://poser.pugx.org/thinkingmedia/gems-underscore/license.svg)](https://packagist.org/packages/thinkingmedia/gems-underscore)
 
 > Pushing round things down square holes.
 
