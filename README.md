@@ -1,11 +1,11 @@
 # Underscore
 
-[![Build Status](https://travis-ci.org/thinkingmedia/gems-underscore.svg)](https://travis-ci.org/thinkingmedia/gems-underscore)
-[![Coverage Status](https://coveralls.io/repos/thinkingmedia/gems-underscore/badge.svg)](https://coveralls.io/r/thinkingmedia/gems-underscore)
-[![Latest Stable Version](https://poser.pugx.org/thinkingmedia/gems-underscore/v/stable.svg)](https://packagist.org/packages/thinkingmedia/gems-underscore) 
-[![Total Downloads](https://poser.pugx.org/thinkingmedia/gems-underscore/downloads.svg)](https://packagist.org/packages/thinkingmedia/gems-underscore) 
-[![Latest Unstable Version](https://poser.pugx.org/thinkingmedia/gems-underscore/v/unstable.svg)](https://packagist.org/packages/thinkingmedia/gems-underscore) 
-[![License](https://poser.pugx.org/thinkingmedia/gems-underscore/license.svg)](https://packagist.org/packages/thinkingmedia/gems-underscore)
+[![Build Status](https://travis-ci.org/thinkingmedia/underscore.svg)](https://travis-ci.org/thinkingmedia/underscore)
+[![Coverage Status](https://coveralls.io/repos/thinkingmedia/underscore/badge.svg)](https://coveralls.io/r/thinkingmedia/underscore)
+[![Latest Stable Version](https://poser.pugx.org/thinkingmedia/underscore/v/stable.svg)](https://packagist.org/packages/thinkingmedia/underscore) 
+[![Total Downloads](https://poser.pugx.org/thinkingmedia/underscore/downloads.svg)](https://packagist.org/packages/thinkingmedia/underscore) 
+[![Latest Unstable Version](https://poser.pugx.org/thinkingmedia/underscore/v/unstable.svg)](https://packagist.org/packages/thinkingmedia/underscore) 
+[![License](https://poser.pugx.org/thinkingmedia/underscore/license.svg)](https://packagist.org/packages/thinkingmedia/underscore)
 
 `Underscore` is an utility library that makes working with arrays in PHP
 a little bit more pleasant.
@@ -15,7 +15,7 @@ a little bit more pleasant.
 Via Composer
 
 ```shell
-$ composer require thinkingmedia/gems-underscore
+$ composer require thinkingmedia/underscore
 ```
 
 ## Usage
@@ -606,7 +606,7 @@ _::create([1, 2, 3, 4, 5])->slice(2, 2);    // [3, 4]
 
 ## Contributing
 
-Please see [CONTRIBUTING](https://github.com/thinkingmedia/gems-underscore/blob/master/CONTRIBUTING.md).
+Please see [CONTRIBUTING](https://github.com/thinkingmedia/underscore/blob/master/CONTRIBUTING.md).
 
 ## Credits
 
@@ -615,4 +615,4 @@ For all of you who develop in Objective-C, I highly recommend you check it out!
 
 ## License
 
-Please see [LICENSE](https://github.com/thinkingmedia/gems-underscore/blob/master/LICENSE).
+Please see [LICENSE](https://github.com/thinkingmedia/underscore/blob/master/LICENSE).

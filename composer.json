@@ -1,5 +1,5 @@
 {
-  "name": "thinkingmedia/gems-underscore",
+  "name": "thinkingmedia/underscore",
   "description": "Underscore is a PHP library that provides useful helpers when working with arrays and collections.",
   "keywords": [
     "underscore",
@@ -7,7 +7,7 @@
     "collections",
     "toolkit"
   ],
-  "homepage": "https://github.com/thinkingmedia/gems-underscore",
+  "homepage": "https://github.com/thinkingmedia/underscore",
   "license": "BSD-2-Clause",
   "authors": [
     {
