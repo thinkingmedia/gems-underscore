@@ -1,6 +1,0 @@
-/docs
-/tests
-/.gitattributes
-/.gitignore
-/.travis.yml
-/phpunit.xml.dist

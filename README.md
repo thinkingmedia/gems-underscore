@@ -1,14 +1,15 @@
-# Belt.`Underscore`
+# Underscore
 
-[![Latest Version](http://img.shields.io/packagist/v/belt/underscore.svg?style=flat-square)](https://github.com/beltphp/underscore/releases)
-[![Software License](http://img.shields.io/packagist/l/belt/underscore.svg?style=flat-square)](LICENSE)
-[![Build Status](https://img.shields.io/travis/beltphp/underscore/master.svg?style=flat-square)](https://travis-ci.org/beltphp/releases)
-[![Coverage Status](http://img.shields.io/scrutinizer/coverage/g/beltphp/underscore.svg?style=flat-square)](https://scrutinizer-ci.com/g/beltphp/underscore/code-structure)
-[![Quality Score](http://img.shields.io/scrutinizer/g/beltphp/underscore.svg?style=flat-square)](https://scrutinizer-ci.com/g/beltphp/underscore/)
+[![Build Status](https://travis-ci.org/thinkingmedia/gems-underscore.svg)](https://travis-ci.org/thinkingmedia/gems-underscore)
+[![Coverage Status](https://coveralls.io/repos/thinkingmedia/gems-underscore/badge.svg)](https://coveralls.io/r/thinkingmedia/gems-phing)
+[![Latest Stable Version](https://poser.pugx.org/thinkingmedia/gems-phing/v/stable.svg)](https://packagist.org/packages/thinkingmedia/gems-phing) 
+[![Total Downloads](https://poser.pugx.org/thinkingmedia/gems-phing/downloads.svg)](https://packagist.org/packages/thinkingmedia/gems-phing) 
+[![Latest Unstable Version](https://poser.pugx.org/thinkingmedia/gems-phing/v/unstable.svg)](https://packagist.org/packages/thinkingmedia/gems-phing) 
+[![License](https://poser.pugx.org/thinkingmedia/gems-phing/license.svg)](https://packagist.org/packages/thinkingmedia/gems-phing)
 
 > Pushing round things down square holes.
 
-Belt`.Underscore` is an utility library that makes working with arrays in PHP
+`Underscore` is an utility library that makes working with arrays in PHP
 a little bit more pleasant.
 
 ## Installation
@@ -16,7 +17,7 @@ a little bit more pleasant.
 Via Composer
 
 ```shell
-$ composer require belt/underscore
+$ composer require thinkingmedia/gems-underscore
 ```
 
 ## Usage
@@ -24,7 +25,7 @@ $ composer require belt/underscore
 The following examples assume that you have included the Underscore utility:
 
 ```php
-use Belt\_;
+use underscore\_;
 ```
 
 Some of the examples might seem a bit contrived, but they're actually really
@@ -607,7 +608,7 @@ _::create([1, 2, 3, 4, 5])->slice(2, 2);    // [3, 4]
 
 ## Contributing
 
-Please see [CONTRIBUTING](https://github.com/beltphp/underscore/blob/master/CONTRIBUTING.md).
+Please see [CONTRIBUTING](https://github.com/thinkingmedia/gems-underscore/blob/master/CONTRIBUTING.md).
 
 ## Credits
 
@@ -616,4 +617,4 @@ For all of you who develop in Objective-C, I highly recommend you check it out!
 
 ## License
 
-Please see [LICENSE](https://github.com/beltphp/underscore/blob/master/LICENSE).
+Please see [LICENSE](https://github.com/thinkingmedia/gems-underscore/blob/master/LICENSE).
