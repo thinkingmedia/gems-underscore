@@ -1,8 +1,10 @@
 {
   "name": "thinkingmedia/underscore",
-  "description": "Pushing square things down round holes",
+  "description": "Underscore is a PHP library that provides useful helpers when working with arrays and collections.",
   "keywords": [
     "underscore",
+    "array",
+    "collections",
     "toolkit"
   ],
   "homepage": "https://github.com/thinkingmedia/underscore",
@@ -21,21 +23,18 @@
       "role": "Developer"
     }
   ],
-  "require-dev": {
-    "phpunit/phpunit": "4.*"
-  },
   "require": {
     "php": ">=5.4.0",
     "symfony/property-access": "~2.0"
     },
   "autoload": {
     "psr-4": {
-      "Belt\\": "src"
+      "Underscore\\": "src"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "Belt\\Test\\": "tests"
+      "Underscore\\Test\\": "tests"
     }
   },
   "extra": {
