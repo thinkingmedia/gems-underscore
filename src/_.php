@@ -5,18 +5,6 @@ namespace Underscore;
 use Symfony\Component\PropertyAccess\PropertyAccess;
 
 /**
- * Factory function.
- *
- * @param array $container
- *
- * @return _
- */
-function _($container = array())
-{
-	return _::create($container);
-}
-
-/**
  * @author Ramon Kleiss <ramonkleiss@gmail.com>
  * @author Mathew Foscarini <support@thinkingmedia.ca>
  */
