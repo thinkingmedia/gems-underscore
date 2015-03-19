@@ -5,6 +5,18 @@ namespace Underscore;
 use Symfony\Component\PropertyAccess\PropertyAccess;
 
 /**
+ * Factory function.
+ *
+ * @param array $container
+ *
+ * @return _
+ */
+function _($container = array())
+{
+	return _::create($container);
+}
+
+/**
  * @author Ramon Kleiss <ramonkleiss@gmail.com>
  * @author Mathew Foscarini <support@thinkingmedia.ca>
  */
@@ -43,11 +55,24 @@ class _ implements \ArrayAccess, \IteratorAggregate
 	}
 
 	/**
-	 * @return array
+	 * Returns a new array of the strings in the given string that are separated
+	 * by the given separator.
+	 *
+	 * @param string
+	 * @param string|null
+	 *
+	 * @return _
 	 */
-	public function toArray()
+	public static function split($string, $separator = null)
 	{
-		return $this->container;
+		if (strlen((string)$separator) == 0)
+		{
+			return static::create(str_split($string));
+		}
+		else
+		{
+			return static::create(explode($separator, $string));
+		}
 	}
 
 	/**
@@ -150,6 +175,15 @@ class _ implements \ArrayAccess, \IteratorAggregate
 	}
 
 	/**
+	 * @alias uniq()
+	 * @return _
+	 */
+	public function distinct()
+	{
+		return static::create(array_unique($this->container, SORT_REGULAR));
+	}
+
+	/**
 	 * Calls the given callback once for each element in the container, passing
 	 * that element as the argument.
 	 *
@@ -198,6 +232,22 @@ class _ implements \ArrayAccess, \IteratorAggregate
 	}
 
 	/**
+	 * Returns a new array with the concatenated results of invoking the
+	 * callback once for every element in the container.
+	 *
+	 * @param Callable
+	 *
+	 * @return _
+	 */
+	public function flatMap(Callable $callback)
+	{
+		return array_reduce($this->container, function ($r, $n) use ($callback)
+		{
+			return $r->concat($callback($n));
+		}, static::create());
+	}
+
+	/**
 	 * Returns a new, one-dimensional array that is a recursive flattening of
 	 * the container.
 	 *
@@ -216,19 +266,11 @@ class _ implements \ArrayAccess, \IteratorAggregate
 	}
 
 	/**
-	 * Returns a new array with the concatenated results of invoking the
-	 * callback once for every element in the container.
-	 *
-	 * @param Callable
-	 *
-	 * @return _
+	 * {@inheritDoc}
 	 */
-	public function flatMap(Callable $callback)
+	public function getIterator()
 	{
-		return array_reduce($this->container, function ($r, $n) use ($callback)
-		{
-			return $r->concat($callback($n));
-		}, static::create());
+		return new \ArrayIterator($this->container);
 	}
 
 	/**
@@ -298,9 +340,9 @@ class _ implements \ArrayAccess, \IteratorAggregate
 	 *
 	 * @return string
 	 */
-	public function join($seperator)
+	public function join($separator)
 	{
-		return implode($seperator, $this->container);
+		return implode($separator, $this->container);
 	}
 
 	/**
@@ -398,6 +440,43 @@ class _ implements \ArrayAccess, \IteratorAggregate
 	}
 
 	/**
+	 * {@inheritDoc}
+	 */
+	public function offsetExists($offset)
+	{
+		return isset($this->container[$offset]);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	public function offsetGet($offset)
+	{
+		return $this->container[$offset];
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	public function offsetSet($offset, $value)
+	{
+		$this->container[$offset] = $value;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	public function offsetUnset($offset)
+	{
+		if ($this->offsetExists($offset))
+		{
+			unset($this->container[$offset]);
+		}
+
+		$this->container = array_values($this->container);
+	}
+
+	/**
 	 * Partitions the container into two arrays based on the boolean return
 	 * value of the given block.
 	 *
@@ -442,6 +521,16 @@ class _ implements \ArrayAccess, \IteratorAggregate
 	}
 
 	/**
+	 * Treats container like a stack and removes the last object, returning it.
+	 *
+	 * @return mixed
+	 */
+	public function pop()
+	{
+		return array_pop($this->container);
+	}
+
+	/**
 	 * Calculate the product of the container by assuming that all values can
 	 * be casted to a double value.
 	 *
@@ -457,6 +546,21 @@ class _ implements \ArrayAccess, \IteratorAggregate
 					{
 						return $m *= $n;
 					});
+	}
+
+	/**
+	 * Treats container like a stack and adds the given object to the end of
+	 * the container.
+	 *
+	 * @param mixed
+	 *
+	 * @return self
+	 */
+	public function push($element)
+	{
+		$this->container[] = $element;
+
+		return $this;
 	}
 
 	/**
@@ -547,6 +651,16 @@ class _ implements \ArrayAccess, \IteratorAggregate
 	}
 
 	/**
+	 * Removes the container's first object and returns it.
+	 *
+	 * @return mixed
+	 */
+	public function shift()
+	{
+		return array_shift($this->container);
+	}
+
+	/**
 	 * Returns a new array that is shuffled.
 	 *
 	 * @return _
@@ -572,7 +686,7 @@ class _ implements \ArrayAccess, \IteratorAggregate
 	}
 
 	/**
-	 * Returns a subarray consisting of the given number of elements from the
+	 * Returns a sub-array consisting of the given number of elements from the
 	 * given starting index.
 	 *
 	 * @param integer
@@ -649,6 +763,14 @@ class _ implements \ArrayAccess, \IteratorAggregate
 	}
 
 	/**
+	 * @return array
+	 */
+	public function toArray()
+	{
+		return $this->container;
+	}
+
+	/**
 	 * Assumes that the container is an array of arrays and transposes the rows
 	 * and columns.
 	 *
@@ -672,54 +794,6 @@ class _ implements \ArrayAccess, \IteratorAggregate
 	}
 
 	/**
-	 * Returns a new array where objects in the given array are removed from
-	 * the receiver.
-	 *
-	 * @param array
-	 *
-	 * @return _
-	 */
-	public function without(array $filter)
-	{
-		return static::create(array_values(array_diff($this->container, $filter)));
-	}
-
-	/**
-	 * Treats container like a stack and removes the last object, returning it.
-	 *
-	 * @return mixed
-	 */
-	public function pop()
-	{
-		return array_pop($this->container);
-	}
-
-	/**
-	 * Treats container like a stack and adds the given object to the end of
-	 * the container.
-	 *
-	 * @param mixed
-	 *
-	 * @return self
-	 */
-	public function push($element)
-	{
-		$this->container[] = $element;
-
-		return $this;
-	}
-
-	/**
-	 * Removes the container's first object and returns it.
-	 *
-	 * @return mixed
-	 */
-	public function shift()
-	{
-		return array_shift($this->container);
-	}
-
-	/**
 	 * Inserts the given object at the front of container, moving all other
 	 * objects in the container up one index.
 	 *
@@ -735,68 +809,15 @@ class _ implements \ArrayAccess, \IteratorAggregate
 	}
 
 	/**
-	 * Returns a new array of the strings in the given string that are separated
-	 * by the given separator.
+	 * Returns a new array where objects in the given array are removed from
+	 * the receiver.
 	 *
-	 * @param string
-	 * @param string|null
+	 * @param array
 	 *
 	 * @return _
 	 */
-	public static function split($string, $seperator = null)
+	public function without(array $filter)
 	{
-		if (strlen((string)$seperator) == 0)
-		{
-			return static::create(str_split($string));
-		}
-		else
-		{
-			return static::create(explode($seperator, $string));
-		}
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	public function offsetExists($offset)
-	{
-		return isset($this->container[$offset]);
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	public function offsetGet($offset)
-	{
-		return $this->container[$offset];
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	public function offsetSet($offset, $value)
-	{
-		$this->container[$offset] = $value;
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	public function offsetUnset($offset)
-	{
-		if ($this->offsetExists($offset))
-		{
-			unset($this->container[$offset]);
-		}
-
-		$this->container = array_values($this->container);
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	public function getIterator()
-	{
-		return new \ArrayIterator($this->container);
+		return static::create(array_values(array_diff($this->container, $filter)));
 	}
 }
