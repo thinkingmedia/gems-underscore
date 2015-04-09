@@ -75,9 +75,9 @@ class _ implements \ArrayAccess, \IteratorAggregate
 	 */
 	public function all(Callable $callback)
 	{
-		foreach ($this->container as $element)
+		foreach ($this->container as $i => $e)
 		{
-			if ($callback($element) === false)
+			if ($callback($e, $i) === false)
 			{
 				return false;
 			}
@@ -98,9 +98,9 @@ class _ implements \ArrayAccess, \IteratorAggregate
 	 */
 	public function any(Callable $callback)
 	{
-		foreach ($this->container as $element)
+		foreach ($this->container as $i => $e)
 		{
-			if ($callback($element) === true)
+			if ($callback($e, $i) === true)
 			{
 				return true;
 			}
@@ -196,11 +196,11 @@ class _ implements \ArrayAccess, \IteratorAggregate
 	 */
 	public function find(Callable $callback)
 	{
-		foreach ($this->container as $element)
+		foreach ($this->container as $i => $e)
 		{
-			if ($callback($element) !== false)
+			if ($callback($e, $i) !== false)
 			{
-				return $element;
+				return $e;
 			}
 		}
 
