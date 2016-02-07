@@ -23,7 +23,7 @@ $ composer require thinkingmedia/underscore
 The following examples assume that you have included the Underscore utility:
 
 ```php
-use underscore\_;
+use Underscore\_;
 ```
 
 Some of the examples might seem a bit contrived, but they're actually really
